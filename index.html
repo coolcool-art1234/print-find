@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Printer Discovery</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial; margin: 1.25rem; color: #222; }
+    h1 { font-size: 1.25rem; }
+    button { padding: 0.5rem 1rem; font-size: 1rem; margin-right: 0.5rem; }
+    .section { margin-top: 1rem; }
+    pre { background: #f6f8fa; padding: 0.75rem; border-radius: 6px; overflow:auto; }
+    .loading { opacity: 0.7; }
+    label { font-size: 0.9rem; margin-right: 0.5rem; }
+    input[type="number"] { width: 4.5rem; }
+    .printer { padding: 0.5rem; border-bottom: 1px solid #eee; }
+  </style>
+</head>
+<body>
+  <h1>Printer Discovery — Multi-platform</h1>
+  <p>Click "Search printers" to detect local and network printers. Works on Linux/macOS/Windows (run locally).</p>
+
+  <div>
+    <label for="timeout">mDNS timeout (s):</label>
+    <input id="timeout" type="number" min="2" max="20" value="5" />
+    <button id="discoverBtn">Search printers</button>
+    <button id="jsonBtn">Copy JSON</button>
+    <span id="status"></span>
+  </div>
+
+  <div class="section">
+    <h2>Local printers</h2>
+    <div id="localList"><em>not searched yet</em></div>
+  </div>
+
+  <div class="section">
+    <h2>Network printers (mDNS/IPP)</h2>
+    <div id="networkList"><em>not searched yet</em></div>
+  </div>
+
+  <div class="section">
+    <h2>Raw JSON</h2>
+    <pre id="rawJson">{} </pre>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
